@@ -228,6 +228,7 @@ jQuery에서 이벤트는 시스템에서 일어나는 사건을 컨트롤 해 �
 
 <span style = "font-size:small">**[BROWSER]**</span>
 
+<link rel="stylesheet" href="/jqueryStudyBySHCD.css">
+<img id="cssIMG1" src="/imgFolder/jqueryStudyImg3.png">
 
-<img src="/imgFolder/jqueryStudyImg3.png" style="width: 45%; display : inline-block">
 <img src="/imgFolder/jqueryStudyImg4.png" style="width: 45%; display : inline-block">

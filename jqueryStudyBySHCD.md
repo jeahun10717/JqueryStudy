@@ -145,7 +145,9 @@ jQuery Chain 은 jQuery 가 사용될 때 그 리턴값은 jQuery로 Warpping �
 
 javascript 에서 `setAttribute`는 jQuery에 `attr`의 기능과 같다. 이제 소스를 살펴보자. 위의 소스는 jQuery를 사용한 소스와 완전히 동일하게 동작한다. 이 때 javascript 에 비해 jQuery는 **소스의 길이가 짧고**, **사람의 사고와 비슷하여 이해하기가 쉽다**.
 
-### 5. 탐색
+### 5. 탐색<span style="font-size : medium"> Traversing</span>
+
+탐색은 jQuery Chain 을 초기화하거나 컨트롤하기 위해 사용된다. 밑의 소스로 알아보자
 
 <span style = "font-size:small">**[SOURCE]**</span>
 
@@ -184,3 +186,48 @@ $('ul.first').find('.foo').css('background-color', 'red')
 ```
 
 여기서 `ul.first` 는 `ul` 태그에 `first` 클래스 전체를 지정한다. 이후 `find('.foo')` 를 하게 되면 `first` 클래스 안의 `foo` 라는 클래스만 지정하게 된다. 이후 css 속성으로 배경색을 red로 지정했으므로 `list item 1` 만 빨간색이 된다. 이후 `end()`를 사용하면 마지막으로 사용한 travers 즉 jQuery 실행 했던 때의 선택자 `'ul.first'` 를 가리키게 된다. 그리고 `find('.bar')` 를 했으므로 `bar` 클래스를 지정한다. 이후 css 속성으로 배경색을 green 으로 바꾸어서 위의 사진과 같은 결과창이 나오는 것이다. 이렇게  지정방식의 전환을 **traversing, 한글로는 탐색** 이라고 한다.
+
+traversing 에 관련된 api 들은 밑의 jQuery 공식 홈페이지를 참조하라
+
+[jQuery Traversing 공식 페이지](https://api.jquery.com/category/traversing/)
+
+### 6. 이벤트<span style="font-size : medium"> Event</span>
+
+jQuery에서 이벤트는 시스템에서 일어나는 사건을 컨트롤 해 준다. 기존의 javascript 로 이벤트를 작성하면 브라우저간의 호환성 문제가 생겨서 브라우저마다 따로 작성을 해 주어야 하지만 jQuery는 모든 브라우저에 하나의 코드로 적용이 가능하다.
+
+#### 1. bind, unbind, trigger
+
+<span style = "font-size:small">**[SOURCE]**</span>
+
+```html
+<html>
+    <head>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script type="text/javascript">
+            function clickHandler(e){
+                alert('thank you');
+            }
+            $(document).bind('ready', function(){
+                 $('#click_me').bind('click', clickHandler);
+                 $('#remove_event').bind('click', function(e){
+                     $('#click_me').unbind('click', clickHandler);
+                 });
+                 $('#trigger_event').bind('click', function(e){
+                     $('#click_me').trigger('click');
+                 });
+             })
+        </script>
+    </head>
+    <body>
+        <input id="click_me" type="button" value="click me" />
+        <input id="remove_event" type="button" value="unbind" />
+        <input id="trigger_event" type="button" value="trigger" />
+    </body>
+</html>
+```
+
+<span style = "font-size:small">**[BROWSER]**</span>
+
+
+<img src="/imgFolder/jqueryStudyImg3.png" style="width: 45%; display : inline-block">
+<img src="/imgFolder/jqueryStudyImg4.png" style="width: 45%; display : inline-block">

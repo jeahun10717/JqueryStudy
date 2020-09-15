@@ -228,5 +228,73 @@ jQuery에서 이벤트는 시스템에서 일어나는 사건을 컨트롤 해 �
 
 <span style = "font-size:small">**[BROWSER]**</span>
 
-![jqueryStudyImg3](/imgFolder/jqueryStudyImg3.png){: width="45%" height="auto"}
-![jqueryStudyImg4](/imgFolder/jqueryStudyImg4.png){: width="45%" height="auto"}
+<link rel="stylesheet" href="jqueryStudyBySHCD.css">
+
+<img src="/imgFolder/jqueryStudyImg3.png" style="width: 45%; display : inline-block">
+<img src="/imgFolder/jqueryStudyImg4.png" style="width: 45%; display : inline-block">
+
+
+위에서 jquery 소스만 자세히 보자
+
+```javascript
+function clickHandler(e){
+    alert('thank you');
+}
+$(document).bind('ready', function(){
+   $('#click_me').bind('click', clickHandler);
+   $('#remove_event').bind('click', function(e){
+       $('#click_me').unbind('click', clickHandler);
+   });
+   $('#trigger_event').bind('click', function(e){
+       $('#click_me').trigger('click');
+   });
+})
+```
+`$(document).bind('ready', function()` 부분에서 `'ready'` 는 전체 코드에서 script 코드가 button 이 선언되기 전에 사용되었기 때문에 전체 코드가 안착할 때까지 기다린 후에 실행하기 위한 기능이다. **`bind`** 메소드는 **이벤트 핸들러를 설치하는 기능**이다. 여기서 마우스 클릭을 하면 `clickHandler`라는 함수를 실행하도록 하는 이벤트를 작성했다. **`unbind`** 는 **이벤트 핸들러를 종료**하는 메소드인데 여기서 `$('#click_me').unbind('click', clickHandler);` 부분에서 `click`과 `clickHandler`를 정확히 명시하여 `unbind`할 메소드를 정확히 지정해 주어야 한다. **`trigger`** 는 **이벤트를 강제로 실행**하는 메소드이다. 위의 소스 `$('#click_me').trigger('click');` 이 부분에서 `click_me` 라고 하는 아이디가 가지고 있는 이벤트 중 `click` 이라는 이벤트를 강제로 실행하게 된다.
+
+```javascript
+function clickHandler(e){
+      alert('thank you');
+  }
+$(document).ready(function(){
+     $('#click_me').click(clickHandler);
+     $('#remove_event').click(function(e){
+         $('#click_me').unbind('click', clickHandler);
+     });
+     $('#trigger_event').click(function(e){
+         $('#click_me').trigger('click');
+     });
+ })
+```
+
+여기서 $(document).ready(function(){ 이런식으로 ready라는 이벤트 헬퍼를 사용할 수 있다. 이 방식이 더 많이 쓰이니 알아두자.
+
+```javascript
+<html>
+    <head>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script type="text/javascript">
+            function clickHandler(e) {
+                alert('thank you');
+            }
+            $('#click_me').live('click', clickHandler);
+            $('#remove_event').live('click', function(e) {
+                $('#click_me').die('click', clickHandler);
+            });
+            $('#trigger_event').live('click', function(e) {
+                $('#click_me').trigger('click');
+            });
+        </script>
+    </head>
+    <body>
+        <input id="click_me" type="button" value="click me" />
+    <input id="remove_event" type="button" value="unbind" />
+    <input id="trigger_event" type="button" value="trigger" />
+    </body>
+</html>
+```
+위의 소스는 3.6.1 의 소스와 기능은 완전히 동일하다. `live` 메소드는 기본적으로 `bind`와 비슷하게 동작하나 타겟 엘리먼트가 존재하지 않아도 선언할 수 있다. 즉 선언을 하고 나중에 그 엘리먼트가 선언되면 사용하는 식으로 동작한다. 즉 `ready`와 `bind` 를 같이 쓴 기능을 `live`는 혼자서 수행할 수 있다. `live`를 쓸지 `bind`를 쓸지는 사용자가 판단하면 된다. 단 `unbind` 는 `die` 메소드를 사용하여야 한다.
+
+이벤트 핸들러와 관련된 정확하고 자세한 정보는 공식사이트를 참조하라
+
+[jQuery 공식 페이지-Event Handler Attatchment](https://api.jquery.com/category/events/event-handler-attachment/)

@@ -63,7 +63,7 @@ jquery에서 제공하는 최신 버전을 URL 을 통해 이용하는 방법이
 ```
 <span style = "font-size:small">**[BROWSER]**</span>
 
-<img src="/imgFolder/jqueryStudyImg1.png" style="width : 60%; height : auto">
+<img src="./imgFolder/jqueryStudyImg1.png" style="width : 60%; height : auto">
 
 ### 2. 래퍼 <span style="font-size : medium"> Wrapper</span>
 
@@ -176,7 +176,7 @@ javascript 에서 `setAttribute`는 jQuery에 `attr`의 기능과 같다. 이제
 
 <span style = "font-size:small">**[BROWSER]**</span>
 
-<img src="/imgFolder/jqueryStudyImg2.png" style="width : 60%; height : auto;">
+<img src="./imgFolder/jqueryStudyImg2.png" style="width : 60%; height : auto;">
 
 jQuery의 소스만 따로 해석해 보자
 
@@ -230,8 +230,8 @@ jQuery에서 이벤트는 시스템에서 일어나는 사건을 컨트롤 해 �
 
 <link rel="stylesheet" href="jqueryStudyBySHCD.css">
 
-<img src="/imgFolder/jqueryStudyImg3.png" style="width: 45%; display : inline-block">
-<img src="/imgFolder/jqueryStudyImg4.png" style="width: 45%; display : inline-block">
+<img src="./imgFolder/jqueryStudyImg3.png" style="width: 45%; display : inline-block">
+<img src="./imgFolder/jqueryStudyImg4.png" style="width: 45%; display : inline-block">
 
 
 위에서 jquery 소스만 자세히 보자
@@ -333,7 +333,7 @@ append는 타깃 엘리먼트의 자식으로 요소를 추가시키는 메소�
 
 <span style = "font-size:small">**[BROWSER]**</span>
 
-<img src="/imgFolder/jqueryStudyImg5.png">
+<img src="./imgFolder/jqueryStudyImg5.png">
 
 #### 2. after()
 
@@ -363,7 +363,7 @@ after는 타깃 엘리먼트의 형제로 요소를 추가하는 메소드이다
 
 <span style = "font-size:small">**[BROWSER]**</span>
 
-<img src="/imgFolder/jqueryStudyImg6.png">
+<img src="./imgFolder/jqueryStudyImg6.png">
 
 #### 3. wrap()
 
@@ -403,7 +403,7 @@ wrap 은 타깃 엘리먼트를 내가 지정한 태그들로 감싸는 메소�
 
 <span style = "font-size:small">**[BROWSER]**</span>
 
-<img src="/imgFolder/jqueryStudyImg7.png">
+<img src="./imgFolder/jqueryStudyImg7.png">
 
 #### 4. remove()
 
@@ -445,11 +445,11 @@ remove 는 타깃엘리먼트를 모두 삭제하는 메소드이다.
 
 <span style = "font-size:small">**[BROWSER-버튼클릭 전]**</span>
 
-<img src="/imgFolder/jqueryStudyImg8.png">
+<img src="./imgFolder/jqueryStudyImg8.png">
 
 <span style = "font-size:small">**[BROWSER-버튼클릭 후]**</span>
 
-<img src="/imgFolder/jqueryStudyImg9.png">
+<img src="./imgFolder/jqueryStudyImg9.png">
 
 
 #### 5. replaceAll()
@@ -478,7 +478,7 @@ replaceAll은 `$(emt).replaceAll(target)` 에서 ``target`` 엘리먼트를 찾�
 
 <span style = "font-size:small">**[BROWSER]**</span>
 
-<img src="/imgFolder/jqueryStudyImg10.png">
+<img src="./imgFolder/jqueryStudyImg10.png">
 
 #### 6. toggleClass()
 
@@ -521,7 +521,7 @@ toggleClass 는 타깃엘리먼트(태그)가 클래스를 가지고 있으면 �
 
 <span style = "font-size:small">**[BROWSER]**</span>
 
-<img src="/imgFolder/jqueryStudyImg11.png">
+<img src="./imgFolder/jqueryStudyImg11.png">
 
 위에서 대표적인 엘리먼트 제어를 배워보았다. 이 제어메소드는 공식사이트에서 참고하며 사용하라.
 
